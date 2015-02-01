@@ -85,8 +85,8 @@ CREATE TABLE primary_objects (
 CREATE OR REPLACE FUNCTION updateVector() RETURNS trigger AS $$
 BEGIN
 	NEW.searchable_text = 
-		setweight(to_tsvector('pg_catalog.english', coalesce($1."name", '')), 'A') ||
-		setweight(to_tsvector('pg_catalog.english', coalesce($1.description, '')), 'D');
+		setweight(to_tsvector('pg_catalog.english', coalesce(NEW."name", '')), 'A') ||
+		setweight(to_tsvector('pg_catalog.english', coalesce(NEW.description, '')), 'D');
 
 	RETURN NEW;	
 END;
