@@ -1,0 +1,26 @@
+{
+    "name":"cuppett/cakephp-pg_utils",
+    "description":"CakePHP PostgreSQL Utilities",
+    "type":"cakephp-plugin",
+    "keywords":[
+        "cakephp",
+        "postgresql",
+        "pgsql",
+        "json",
+        "search"
+    ],
+    "homepage":"https://github.com/cuppett/cakephp-pg_utils",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Stephen Cuppett",
+            "email":"steve@cuppett.com",
+            "homepage":"http://stephencuppett.com",
+            "role":"Author"
+        }
+    ],
+    "require":{
+        "php":">=5.3.3",
+        "composer/installers":"*"
+    }
+}
