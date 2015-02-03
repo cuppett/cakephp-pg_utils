@@ -66,6 +66,26 @@ Ensure `require` is present in `composer.json`. This will install the plugin int
 
 ## Examples
 
+### Using Interval/JSON/Array types in a model
+
+If your database table contains interval, json or array types in their definition, you can configure behaviors to help translate them into more PHP-friendly types and values via the afterFind and beforeSave callbacks.
+
+They are configured on the model by identifying the fields to convert. One potential enhancement would be to automatically detect these fields; however, it may be useful to not have all converted automatically as well.
+
+```php
+class Task extends AppModel {
+    public $actsAs = array(
+        'PgUtils.Interval' => array(
+            'fields' => array(
+                'estimate',
+                'actual',
+                'remain'
+            )
+        ),
+        'PgUtils.Json' => array('fields' => array('custom_attributes'))
+    );
+```
+
 ### Integrating the search column into your database.
 
 The search behavior requires a ts_vector column to be defined. The column must be maintained separately
